@@ -1,12 +1,15 @@
-import { expect } from 'chai'
+import chai, { expect } from 'chai'
+import spies from 'chai-spies'
 import sinon from 'sinon'
-
 import CodeTimer from '../lib/CodeTimer.js'
+
+chai.use(spies)
 
 describe('CodeTimer', () => {
   describe('#time()', () => {
     it('records the start time', () => {
-      const codeTimer = new CodeTimer()
+      const testFunction = () => {}
+      const codeTimer = new CodeTimer(testFunction)
 
       const startTime = sinon.useFakeTimers(new Date().getTime())
       codeTimer.time()
@@ -17,7 +20,8 @@ describe('CodeTimer', () => {
     })
 
     it('records the finish time', () => {
-      const codeTimer = new CodeTimer()
+      const testFunction = () => {}
+      const codeTimer = new CodeTimer(testFunction)
 
       const startTime = sinon.useFakeTimers(new Date().getTime())
       codeTimer.time()
@@ -25,6 +29,17 @@ describe('CodeTimer', () => {
       expect(codeTimer.finishTime).to.equal(startTime.now)
 
       startTime.restore()
+    })
+
+    it('Calls the function under test', () => {
+      const testFunction = () => {}
+      const codeTimer = new CodeTimer(testFunction)
+
+      chai.spy.on(codeTimer, ['methodUnderTest'])
+
+      codeTimer.time()
+
+      expect(codeTimer.methodUnderTest).to.have.been.called()
     })
   })
 
