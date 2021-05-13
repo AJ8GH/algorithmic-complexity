@@ -1,5 +1,8 @@
-import { expect } from 'chai'
+import chai, { expect } from 'chai'
 import InputGenerator from '../lib/InputGenerator.js'
+import spies from 'chai-spies'
+
+chai.use(spies)
 
 describe('GenerateInputArray()', () => {
   it('generates an array of its argument length', () => {
@@ -18,5 +21,15 @@ describe('GenerateInputArray()', () => {
     expect(array[50000]).to.exist
     expect(array[75000]).to.exist
     expect(array[99999]).to.exist
+  })
+
+  it('fills the array with random numbers', () => {
+    const inputGenerator = new InputGenerator()
+
+    chai.spy.on(Math, ['random'])
+
+    console.log(inputGenerator.generate(100000))
+
+    expect(Math.random).to.have.been.called(100001)
   })
 })
