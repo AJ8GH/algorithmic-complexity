@@ -4,12 +4,12 @@ import sinon from 'sinon'
 import CodeTimer from '../lib/CodeTimer.js'
 
 describe('CodeTimer', () => {
-  describe('#start()', () => {
+  describe('#time()', () => {
     it('records the start time', () => {
       const codeTimer = new CodeTimer()
 
       const startTime = sinon.useFakeTimers(new Date().getTime())
-      codeTimer.start()
+      codeTimer.time()
 
       expect(codeTimer.startTime).to.equal(startTime.now)
 
