@@ -28,7 +28,19 @@ describe('CodeTimer', () => {
       codeTimer.finish()
 
       expect(codeTimer.finishTime).to.equal(finishTime.now)
+
       finishTime.restore()
+    })
+  })
+
+  describe('#runTime()', () => {
+    it('returns the difference between start and finish time', () => {
+      const codeTimer = new CodeTimer()
+
+      codeTimer.startTime = 1000
+      codeTimer.finishTime = 1500
+
+      expect(codeTimer.runTime()).to.equal(500)
     })
   })
 })
