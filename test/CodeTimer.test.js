@@ -15,21 +15,16 @@ describe('CodeTimer', () => {
 
       startTime.restore()
     })
-  })
 
-  describe('#finish()', () => {
     it('records the finish time', () => {
       const codeTimer = new CodeTimer()
 
       const startTime = sinon.useFakeTimers(new Date().getTime())
-      codeTimer.start()
+      codeTimer.time()
 
-      const finishTime = sinon.useFakeTimers(startTime.now + 1000)
-      codeTimer.finish()
+      expect(codeTimer.finishTime).to.equal(startTime.now)
 
-      expect(codeTimer.finishTime).to.equal(finishTime.now)
-
-      finishTime.restore()
+      startTime.restore()
     })
   })
 
