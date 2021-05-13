@@ -1,0 +1,30 @@
+{
+  "name": "algorithmic-complexity",
+  "version": "1.0.0",
+  "description": "This course focuses on an aspect of Computer Science that is relished by many developers, called algorithmic complexity.",
+  "main": "CodeTimer.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AJ8GH/algorithmic-complexity.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AJ8GH/algorithmic-complexity/issues"
+  },
+  "homepage": "https://github.com/AJ8GH/algorithmic-complexity#readme",
+  "devDependencies": {
+    "chai": "*",
+    "eslint": "^7.26.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.3.1",
+    "mocha": "*",
+    "sinon": "^10.0.0"
+  }
+}

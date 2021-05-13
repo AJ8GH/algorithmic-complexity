@@ -1,7 +1,7 @@
 Time Complexity
 ===============
 
-![curves](curves.png)
+![curves](images/curves.png)
 
 Types of curve relating to different algorithmic time complexity, in order of efficiency
 
