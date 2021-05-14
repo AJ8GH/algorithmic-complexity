@@ -6,6 +6,9 @@ import CodeTimer from '../lib/CodeTimer.js'
 chai.use(spies)
 
 describe('CodeTimer', () => {
+  beforeEach(() => sinon.stub(console, ['log']))
+  afterEach(() => sinon.restore())
+
   describe('#time()', () => {
     const testFunction = () => {}
 
@@ -58,10 +61,11 @@ describe('CodeTimer', () => {
       const inputGenerator = { generate: () => {} }
       codeTimer.inputGenerator = inputGenerator
 
-      chai.spy.on(console, ['log'])
-
       codeTimer.time(5000)
-      expect(console.log).to.have.been.called.with(5000)
+
+      sinon.assert.calledWith(console.log, 5000)
+
+      sinon.restore()
     })
 
     it('outputs the run time to console', () => {
@@ -70,7 +74,10 @@ describe('CodeTimer', () => {
       codeTimer.inputGenerator = inputGenerator
 
       codeTimer.time(5000)
-      expect(console.log).to.have.been.called.with(codeTimer.runTime())
+
+      sinon.assert.calledWith(console.log, 5000, codeTimer.runTime())
+
+      sinon.restore()
     })
   })
 
