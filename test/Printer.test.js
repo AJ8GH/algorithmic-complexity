@@ -4,22 +4,22 @@ import sinon from 'sinon'
 import Printer from '../lib/Printer.js'
 
 describe('Printer', () => {
-  it('outputs the run time to console', () => {
+  beforeEach(() => sinon.stub(console, ['log']))
+  afterEach(() => sinon.restore())
+
+  it('outputs all details of the test run to console', () => {
     const printer = new Printer()
-    sinon.stub(console, ['log'])
 
-    printer.printResults({ inputSize: 5000 })
+    const codeTimer = {
+      methodUnderTest: [].reverse,
+      inputSize: 5000,
+      runTime: 2
+    }
 
-    sinon.assert.calledWith(console.log, 5000)
-    sinon.restore()
-  })
+    printer.printResults(codeTimer)
 
-  it('outputs the run time to console', () => {
-    // const printer = new Printer()
-    // sinon.stub(console, ['log'])
+    const expectedOutput = '#reverse() => Array Size: 5000, Run Time: 2'
 
-    // printer.printResults()
-
-    // sinon.assert.calledWith(console.log)
+    sinon.assert.calledWith(console.log, expectedOutput)
   })
 })
