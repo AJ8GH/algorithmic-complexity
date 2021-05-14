@@ -2,7 +2,6 @@ import chai, { expect } from 'chai'
 import spies from 'chai-spies'
 import sinon from 'sinon'
 import CodeTimer from '../lib/CodeTimer.js'
-import InputGenerator from '../lib/InputGenerator.js'
 
 chai.use(spies)
 

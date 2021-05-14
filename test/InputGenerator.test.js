@@ -30,6 +30,6 @@ describe('GenerateInputArray()', () => {
 
     console.log(inputGenerator.generate(100000))
 
-    expect(Math.random).to.have.been.called(100001)
+    expect(Math.random).to.have.been.called(100000)
   })
 })
