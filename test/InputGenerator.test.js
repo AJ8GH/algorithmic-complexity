@@ -28,7 +28,7 @@ describe('GenerateInputArray()', () => {
 
     chai.spy.on(Math, ['random'])
 
-    console.log(inputGenerator.generate(100000))
+    inputGenerator.generate(100000)
 
     expect(Math.random).to.have.been.called(100000)
   })

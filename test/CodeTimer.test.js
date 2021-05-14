@@ -7,11 +7,12 @@ chai.use(spies)
 
 describe('CodeTimer', () => {
   describe('#time()', () => {
-    it('records the start time', () => {
-      const testFunction = () => {}
-      const codeTimer = new CodeTimer(testFunction)
+    const testFunction = () => {}
 
+    it('records the start time', () => {
+      const codeTimer = new CodeTimer(testFunction)
       const startTime = sinon.useFakeTimers(new Date().getTime())
+
       codeTimer.time()
 
       expect(codeTimer.startTime).to.equal(startTime.now)
@@ -20,10 +21,9 @@ describe('CodeTimer', () => {
     })
 
     it('records the finish time', () => {
-      const testFunction = () => {}
       const codeTimer = new CodeTimer(testFunction)
-
       const startTime = sinon.useFakeTimers(new Date().getTime())
+
       codeTimer.time()
 
       expect(codeTimer.finishTime).to.equal(startTime.now)
@@ -32,7 +32,6 @@ describe('CodeTimer', () => {
     })
 
     it('Calls the function under test', () => {
-      const testFunction = () => {}
       const codeTimer = new CodeTimer(testFunction)
 
       chai.spy.on(codeTimer, ['methodUnderTest'])
@@ -43,16 +42,26 @@ describe('CodeTimer', () => {
     })
 
     it('generates input array', () => {
-      const testFunction = () => {}
       const codeTimer = new CodeTimer(testFunction)
+
       const inputGenerator = { generate: () => {} }
       codeTimer.inputGenerator = inputGenerator
-
       chai.spy.on(inputGenerator, ['generate'])
 
       codeTimer.time(5000)
 
       expect(inputGenerator.generate).to.have.been.called.with(5000)
+    })
+
+    it('outputs the input size to console', () => {
+      const codeTimer = new CodeTimer(testFunction)
+      const inputGenerator = { generate: () => {} }
+      codeTimer.inputGenerator = inputGenerator
+
+      chai.spy.on(console, ['log'])
+
+      codeTimer.time(5000)
+      expect(console.log).to.have.been.called.with(5000)
     })
   })
 
