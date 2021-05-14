@@ -5,7 +5,7 @@ import AlgorithmRunner from '../lib/AlgorithmRunner.js'
 chai.use(spies)
 
 describe('AlgorithmRunner', () => {
-  xit('runs the codeTimer 20 times by default', () => {
+  it('runs the codeTimer 20 times by default', () => {
     const algorithmRunner = new AlgorithmRunner()
     const testMethod = () => {}
     const codeTimer = { time: () => {} }

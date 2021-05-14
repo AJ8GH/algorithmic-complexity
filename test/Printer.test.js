@@ -10,7 +10,7 @@ describe('Printer', () => {
 
     const codeTimer = {
       methodUnderTest: [].reverse,
-      inputSize: 5000,
+      arraySize: 5000,
       runTime: () => { return 2 }
     }
 
