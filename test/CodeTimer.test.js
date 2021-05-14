@@ -13,52 +13,53 @@ describe('CodeTimer', () => {
     afterEach(() => sinon.restore())
 
     it('records the start time', () => {
-      const codeTimer = new CodeTimer(testFunction)
+      const codeTimer = new CodeTimer()
       const startTime = sinon.useFakeTimers(new Date().getTime())
 
-      codeTimer.time()
+      codeTimer.time({ method: testFunction })
 
       expect(codeTimer.startTime).to.equal(startTime.now)
     })
 
     it('records the finish time', () => {
-      const codeTimer = new CodeTimer(testFunction)
+      const codeTimer = new CodeTimer()
       const startTime = sinon.useFakeTimers(new Date().getTime())
 
-      codeTimer.time()
+      codeTimer.time({ method: testFunction })
 
       expect(codeTimer.finishTime).to.equal(startTime.now)
     })
 
     it('Calls the function under test', () => {
-      const codeTimer = new CodeTimer(testFunction)
+      const codeTimer = new CodeTimer()
+      codeTimer.methodUnderTest = testFunction
 
       chai.spy.on(codeTimer, ['methodUnderTest'])
 
-      codeTimer.time()
+      codeTimer.time({ method: codeTimer.methodUnderTest, arraySize: 5000 })
 
       expect(codeTimer.methodUnderTest).to.have.been.called()
     })
 
     it('generates input array', () => {
-      const codeTimer = new CodeTimer(testFunction)
+      const codeTimer = new CodeTimer()
 
       const inputGenerator = { generate: () => {} }
       codeTimer.inputGenerator = inputGenerator
       chai.spy.on(inputGenerator, ['generate'])
 
-      codeTimer.time(5000)
+      codeTimer.time({ method: testFunction, arraySize: 5000 })
 
       expect(inputGenerator.generate).to.have.been.called.with(5000)
     })
 
     it('uses the printer to output the test run results to console', () => {
-      const codeTimer = new CodeTimer(testFunction)
+      const codeTimer = new CodeTimer()
       const printer = { printResults: () => {} }
       codeTimer.printer = printer
       chai.spy.on(printer, ['printResults'])
 
-      codeTimer.time(5000)
+      codeTimer.time({ method: testFunction, arraySize: 5000 })
 
       expect(printer.printResults).to.have.been.called.with(codeTimer)
     })

@@ -1,13 +1,17 @@
 import CodeTimer from '../../lib/CodeTimer.js'
 
-const reverseTimer = new CodeTimer([].reverse)
-
-function createIntputSample () {
+function createIntputSample (initialSize) {
   const inputSample = []
-  for (let i = 500000; i <= 10000000; i += 500000) { inputSample.push(i) }
+  for (let size = initialSize; size <= initialSize * 20; size += initialSize) {
+    inputSample.push(size)
+  }
   return inputSample
 }
 
-const inputSample = createIntputSample()
+function algorithmRunner (options) {
+  const codeTimer = new CodeTimer(options.method)
+  const inputSample = createIntputSample(options.size)
+  inputSample.forEach(inputArray => codeTimer.time(inputArray))
+}
 
-inputSample.forEach(inputSize => reverseTimer.time(inputSize))
+algorithmRunner({ method: [].reverse, size: 1000000 })
