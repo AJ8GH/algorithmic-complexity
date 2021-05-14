@@ -2,6 +2,7 @@ import chai, { expect } from 'chai'
 import spies from 'chai-spies'
 import sinon from 'sinon'
 import CodeTimer from '../lib/CodeTimer.js'
+import InputGenerator from '../lib/InputGenerator.js'
 
 chai.use(spies)
 
@@ -40,6 +41,19 @@ describe('CodeTimer', () => {
       codeTimer.time()
 
       expect(codeTimer.methodUnderTest).to.have.been.called()
+    })
+
+    it('generates input array', () => {
+      const testFunction = () => {}
+      const codeTimer = new CodeTimer(testFunction)
+      const inputGenerator = { generate: () => {} }
+      codeTimer.inputGenerator = inputGenerator
+
+      chai.spy.on(inputGenerator, ['generate'])
+
+      codeTimer.time(5000)
+
+      expect(inputGenerator.generate).to.have.been.called.with(5000)
     })
   })
 
