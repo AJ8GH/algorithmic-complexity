@@ -8,8 +8,18 @@ describe('Printer', () => {
     const printer = new Printer()
     sinon.stub(console, ['log'])
 
-    printer.printResults()
+    printer.printResults({ inputSize: 5000 })
 
-    sinon.assert.calledWith(console.log)
+    sinon.assert.calledWith(console.log, 5000)
+    sinon.restore()
+  })
+
+  it('outputs the run time to console', () => {
+    // const printer = new Printer()
+    // sinon.stub(console, ['log'])
+
+    // printer.printResults()
+
+    // sinon.assert.calledWith(console.log)
   })
 })
