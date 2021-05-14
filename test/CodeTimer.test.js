@@ -6,11 +6,11 @@ import CodeTimer from '../lib/CodeTimer.js'
 chai.use(spies)
 
 describe('CodeTimer', () => {
-  beforeEach(() => sinon.stub(console, ['log']))
-  afterEach(() => sinon.restore())
-
   describe('#time()', () => {
     const testFunction = () => {}
+
+    beforeEach(() => sinon.stub(console, ['log']))
+    afterEach(() => sinon.restore())
 
     it('records the start time', () => {
       const codeTimer = new CodeTimer(testFunction)
@@ -19,8 +19,6 @@ describe('CodeTimer', () => {
       codeTimer.time()
 
       expect(codeTimer.startTime).to.equal(startTime.now)
-
-      startTime.restore()
     })
 
     it('records the finish time', () => {
@@ -30,8 +28,6 @@ describe('CodeTimer', () => {
       codeTimer.time()
 
       expect(codeTimer.finishTime).to.equal(startTime.now)
-
-      startTime.restore()
     })
 
     it('Calls the function under test', () => {
@@ -64,8 +60,6 @@ describe('CodeTimer', () => {
       codeTimer.time(5000)
 
       sinon.assert.calledWith(console.log, 5000)
-
-      sinon.restore()
     })
 
     it('outputs the run time to console', () => {
@@ -76,8 +70,6 @@ describe('CodeTimer', () => {
       codeTimer.time(5000)
 
       sinon.assert.calledWith(console.log, 5000, codeTimer.runTime())
-
-      sinon.restore()
     })
   })
 
