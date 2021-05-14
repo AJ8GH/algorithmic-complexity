@@ -63,6 +63,15 @@ describe('CodeTimer', () => {
       codeTimer.time(5000)
       expect(console.log).to.have.been.called.with(5000)
     })
+
+    it('outputs the run time to console', () => {
+      const codeTimer = new CodeTimer(testFunction)
+      const inputGenerator = { generate: () => {} }
+      codeTimer.inputGenerator = inputGenerator
+
+      codeTimer.time(5000)
+      expect(console.log).to.have.been.called.with(codeTimer.runTime())
+    })
   })
 
   describe('#runTime()', () => {
