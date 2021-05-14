@@ -1,2 +1,3 @@
 exclude:
 - /timingCode/.*
+component_depth: 2
