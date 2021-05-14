@@ -1,5 +1,3 @@
-import chai, { expect } from 'chai'
-import spies from 'chai-spies'
 import sinon from 'sinon'
 import Printer from '../lib/Printer.js'
 
@@ -13,7 +11,7 @@ describe('Printer', () => {
     const codeTimer = {
       methodUnderTest: [].reverse,
       inputSize: 5000,
-      runTime: 2
+      runTime: () => { return 2 }
     }
 
     printer.printResults(codeTimer)

@@ -52,24 +52,15 @@ describe('CodeTimer', () => {
       expect(inputGenerator.generate).to.have.been.called.with(5000)
     })
 
-    it('outputs the input size to console', () => {
+    it('uses the printer to output the test run results to console', () => {
       const codeTimer = new CodeTimer(testFunction)
-      const inputGenerator = { generate: () => {} }
-      codeTimer.inputGenerator = inputGenerator
+      const printer = { printResults: () => {} }
+      codeTimer.printer = printer
+      chai.spy.on(printer, ['printResults'])
 
       codeTimer.time(5000)
 
-      sinon.assert.calledWith(console.log, 5000)
-    })
-
-    it('outputs the run time to console', () => {
-      const codeTimer = new CodeTimer(testFunction)
-      const inputGenerator = { generate: () => {} }
-      codeTimer.inputGenerator = inputGenerator
-
-      codeTimer.time(5000)
-
-      sinon.assert.calledWith(console.log, 5000, codeTimer.runTime())
+      expect(printer.printResults).to.have.been.called.with(codeTimer)
     })
   })
 
