@@ -1,11 +1,11 @@
 {
   "name": "algorithmic-complexity",
   "version": "1.0.0",
-  "description": "This course focuses on an aspect of Computer Science that is relished by many developers, called algorithmic complexity.",
+  "description": "",
   "main": "CodeTimer.js",
   "scripts": {
-    "test": "nyc --reporter=html --reporter=text mocha",
-    "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
+    "test": "nyc mocha CodeTimer/test",
+    "coveralls": "NODE_ENV=test nyc report --reporter=text-lcov | coveralls",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "type": "module",
@@ -20,6 +20,9 @@
   },
   "homepage": "https://github.com/AJ8GH/algorithmic-complexity#readme",
   "devDependencies": {
+    "@babel/register": "^7.13.16",
+    "babel": "^6.23.0",
+    "babel-plugin-istanbul": "^6.0.0",
     "chai": "*",
     "chai-spies": "^1.0.0",
     "coveralls": "^3.1.0",

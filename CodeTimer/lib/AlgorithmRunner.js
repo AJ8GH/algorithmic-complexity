@@ -1,4 +1,4 @@
-import CodeTimer from '../lib/CodeTimer.js'
+import CodeTimer from './CodeTimer.js'
 
 const DEFAULT_SAMPLE_SIZE = 20
 
