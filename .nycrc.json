@@ -3,5 +3,5 @@
   "require"    : ["@babel/register"],
   "sourceMap"  : false,
   "instrument" : false,
-  "include": ["CodeTimer/lib/*.js", "customAlgorithms/lib/*.js"]
+  "include": ["CodeTimer/lib/*.js", "algorithms/lib/*.js"]
 }

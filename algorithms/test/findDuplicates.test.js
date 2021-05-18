@@ -1,7 +1,7 @@
 import { expect } from 'chai'
 import findDuplicates from '../lib/findDuplicates.js'
 
-describe('#findDuplicates()', () => {
+describe('Algorithm: findDuplicates()', () => {
   it('returns empty array when given [1]', () => {
     expect(findDuplicates([1])).to.deep.equal([])
   })

@@ -4,7 +4,7 @@
   "description": "",
   "main": "CodeTimer.js",
   "scripts": {
-    "test": "c8 mocha CodeTimer/test customAlgorithms/test"
+    "test": "c8 mocha **/test"
   },
   "type": "module",
   "repository": {

@@ -2,7 +2,7 @@ import CodeTimer from './CodeTimer.js'
 
 const DEFAULT_SAMPLE_SIZE = 20
 
-export default class AlgorithmRunner {
+export default class AlgoRunner {
   constructor () {
     this.codeTimer = new CodeTimer()
   }

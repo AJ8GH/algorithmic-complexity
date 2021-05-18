@@ -67,8 +67,8 @@ I ran the code timer for the built in JS Array methods `#reverse()` and `#sort()
 ![reverse-graph](images/reverse-graph.png)
 
 Time complexity:
-
-**O(n)**
+* Linear
+* **O(n)**
 
 ### Sort
 
@@ -82,12 +82,12 @@ Time complexity:
 ![sort-graph](images/sort-graph.png)
 
 Time complexity:
+* Linear
+* **O(n)**
 
-**O(n)**
+## Building Custom Algorithms
 
-## Building Custom Algorithms
-
-### Find duplicates
+### Find duplicates
 Given an array of strings or numbers, find all the elements that appear more than once.
 
 Input          | Output
@@ -100,3 +100,11 @@ Input          | Output
 
 Steps:
 - go through array
+
+### Results
+
+![find-duplicates-graph](images/find-duplicates-graph.png)
+
+Time complexity:
+* Quadratic
+* **O(n^2)**
