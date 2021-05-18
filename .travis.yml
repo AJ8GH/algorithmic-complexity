@@ -3,8 +3,9 @@ node_js:
   - 15
 before_install:
   - npm install -g npm@latest
+  - npm install -g codecov
 install:
   - npm install --dev
 script:
   - npm test
-after_success: npm run coverage
+  - codecov

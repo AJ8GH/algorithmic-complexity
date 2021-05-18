@@ -4,5 +4,4 @@
   "sourceMap"  : false,
   "instrument" : false,
   "include": ["CodeTimer/lib/*.js"]
-
 }
