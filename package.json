@@ -4,9 +4,8 @@
   "description": "",
   "main": "CodeTimer.js",
   "scripts": {
-    "test": "nyc mocha CodeTimer/test customAlgorithms/test",
-    "coveralls": "NODE_ENV=test nyc report --reporter=text-lcov | coveralls",
-    "coverage": "nyc report --reporter=text-lcov | coveralls"
+    "test": "c8 mocha CodeTimer/test customAlgorithms/test",
+    "coverage": "c8 report | coveralls"
   },
   "type": "module",
   "repository": {

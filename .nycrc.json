@@ -1,5 +1,5 @@
 {
-  "reporter"   : ["text-summary", "lcov", "html"],
+  "reporter"   : ["text", "text-summary", "lcov", "html"],
   "require"    : ["@babel/register"],
   "sourceMap"  : false,
   "instrument" : false,
