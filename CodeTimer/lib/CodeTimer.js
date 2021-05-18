@@ -22,7 +22,7 @@ export default class CodeTimer {
     this.printer.printResults(this)
   }
 
-  runTime (inputArray) {
+  runTime () {
     return this.finishTime - this.startTime
   }
 

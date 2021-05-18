@@ -10,7 +10,9 @@ export default class AlgorithmRunner {
   run (options) {
     const inputSample = this._createIntputSample(options.size)
     inputSample.forEach((arraySize) => {
-      this.codeTimer.time({ method: options.method, arraySize: arraySize })
+      this.codeTimer.time(
+        { method: options.method, arraySize: arraySize, custom: options.custom }
+      )
     })
   }
 

@@ -10,10 +10,12 @@ describe('AlgorithmRunner', () => {
       const algorithmRunner = new AlgorithmRunner()
       const testMethod = () => {}
       const codeTimer = { time: () => {} }
+
       chai.spy.on(codeTimer, ['time'])
       algorithmRunner.codeTimer = codeTimer
 
-      algorithmRunner.run({ method: testMethod, size: 1000 })
+      const options = { method: testMethod, size: 1000 }
+      algorithmRunner.run(options)
 
       expect(codeTimer.time).to.have.been.called(20)
     })
