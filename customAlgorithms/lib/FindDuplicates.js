@@ -1,3 +1,3 @@
-export default function FindDuplicates () {
+export default function findDuplicates () {
   return []
 }

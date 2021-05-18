@@ -4,8 +4,7 @@
   "description": "",
   "main": "CodeTimer.js",
   "scripts": {
-    "test": "c8 mocha CodeTimer/test customAlgorithms/test",
-    "coverage": "c8 report | node_modules/coveralls/bin/coveralls.js"
+    "test": "c8 mocha CodeTimer/test customAlgorithms/test"
   },
   "type": "module",
   "repository": {

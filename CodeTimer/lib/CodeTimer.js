@@ -22,6 +22,17 @@ export default class CodeTimer {
     this.printer.printResults(this)
   }
 
+  timeCustom (options) {
+    const inputArray = this._createInputArray(options.arraySize)
+    this.methodUnderTest = options.method
+
+    this._start()
+    this.methodUnderTest(inputArray)
+    this._finish()
+
+    this.printer.printResults(this)
+  }
+
   runTime () {
     return this.finishTime - this.startTime
   }

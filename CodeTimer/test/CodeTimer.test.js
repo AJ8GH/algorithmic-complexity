@@ -75,4 +75,19 @@ describe('CodeTimer', () => {
       expect(codeTimer.runTime()).to.equal(500)
     })
   })
+
+  describe('#timeCustom()', () => {
+    it('times a custom made method', () => {
+      const codeTimer = new CodeTimer()
+
+      const customMethod = () => { return 'This is a custom method' }
+      codeTimer.methodUnderTest = customMethod
+      chai.spy.on(codeTimer, ['methodUnderTest'])
+
+      const options = { method: codeTimer.methodUnderTest, arraySize: 5000 }
+      codeTimer.timeCustom(options)
+
+      expect(codeTimer.methodUnderTest).to.have.been.called()
+    })
+  })
 })
