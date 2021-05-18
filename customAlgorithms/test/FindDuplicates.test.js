@@ -6,7 +6,7 @@ describe('#findDuplicates()', () => {
     expect(findDuplicates([1])).to.deep.equal([])
   })
 
-  xit('returns both elements from an array of 2 duplicates', () => {
+  it('returns both elements from an array of 2 duplicates', () => {
     expect(findDuplicates([1, 1])).deep.equal([1, 1])
   })
 })
