@@ -70,3 +70,19 @@ I ran the code timer for the built in JS Array methods `#reverse()` and `#sort()
 
 #### Graph
 ![sort-graph](images/sort-graph.png)
+
+## Building Custom Algorithms
+
+### Find duplicates
+Given an array of strings or numbers, find all the elements that appear more than once.
+
+Input          | Output
+---------------|--------------
+`[1]`          | `[]`
+`[1, 1]`       | `[1, 1]`
+`[2, 2, 1]`    | `[2, 2]`
+`[]`           | `[]`
+`[2, '2']`     | `[]`
+
+Steps:
+- go through array
