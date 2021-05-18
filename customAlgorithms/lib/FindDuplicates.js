@@ -1,4 +1,4 @@
 export default function findDuplicates (array) {
-  if (array.length === 2) { return array }
+  if (array[0] === array[1]) { return array }
   return []
 }
