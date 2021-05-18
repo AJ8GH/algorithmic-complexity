@@ -12,56 +12,81 @@ describe('CodeTimer', () => {
     beforeEach(() => sinon.stub(console, ['log']))
     afterEach(() => sinon.restore())
 
-    it('records the start time', () => {
-      const codeTimer = new CodeTimer()
-      const startTime = sinon.useFakeTimers(new Date().getTime())
+    describe('timing the algorithm', () => {
+      it('records the start time', () => {
+        const codeTimer = new CodeTimer()
+        const startTime = sinon.useFakeTimers(new Date().getTime())
 
-      codeTimer.time({ method: testFunction })
+        codeTimer.time({ method: testFunction })
 
-      expect(codeTimer.startTime).to.equal(startTime.now)
+        expect(codeTimer.startTime).to.equal(startTime.now)
+      })
+
+      it('records the finish time', () => {
+        const codeTimer = new CodeTimer()
+        const startTime = sinon.useFakeTimers(new Date().getTime())
+
+        codeTimer.time({ method: testFunction })
+
+        expect(codeTimer.finishTime).to.equal(startTime.now)
+      })
     })
 
-    it('records the finish time', () => {
-      const codeTimer = new CodeTimer()
-      const startTime = sinon.useFakeTimers(new Date().getTime())
+    describe('calling the method under test', () => {
+      it('Calls the method under test', () => {
+        const codeTimer = new CodeTimer()
+        codeTimer.methodUnderTest = testFunction
 
-      codeTimer.time({ method: testFunction })
+        chai.spy.on(codeTimer, ['methodUnderTest'])
 
-      expect(codeTimer.finishTime).to.equal(startTime.now)
+        codeTimer.time({ method: codeTimer.methodUnderTest, arraySize: 5000 })
+
+        expect(codeTimer.methodUnderTest).to.have.been.called()
+      })
+
+      it('calls a custom method when specified in options', () => {
+        const codeTimer = new CodeTimer()
+
+        const customMethod = () => { return 'This is a custom method' }
+        codeTimer.methodUnderTest = customMethod
+        chai.spy.on(codeTimer, ['methodUnderTest', '_runCustomAlgorithm'])
+
+        const options = {
+          method: codeTimer.methodUnderTest,
+          arraySize: 5000,
+          custom: true
+        }
+
+        codeTimer.time(options)
+
+        expect(codeTimer.methodUnderTest).to.have.been.called()
+        expect(codeTimer._runCustomAlgorithm).to.have.been.called()
+      })
     })
 
-    it('Calls the function under test', () => {
-      const codeTimer = new CodeTimer()
-      codeTimer.methodUnderTest = testFunction
+    describe('setup and output', () => {
+      it('generates input array', () => {
+        const codeTimer = new CodeTimer()
 
-      chai.spy.on(codeTimer, ['methodUnderTest'])
+        const inputGenerator = { generate: () => {} }
+        codeTimer.inputGenerator = inputGenerator
+        chai.spy.on(inputGenerator, ['generate'])
 
-      codeTimer.time({ method: codeTimer.methodUnderTest, arraySize: 5000 })
+        codeTimer.time({ method: testFunction, arraySize: 5000 })
 
-      expect(codeTimer.methodUnderTest).to.have.been.called()
-    })
+        expect(inputGenerator.generate).to.have.been.called.with(5000)
+      })
 
-    it('generates input array', () => {
-      const codeTimer = new CodeTimer()
+      it('uses the printer to output the test run results to console', () => {
+        const codeTimer = new CodeTimer()
+        const printer = { printResults: () => {} }
+        codeTimer.printer = printer
+        chai.spy.on(printer, ['printResults'])
 
-      const inputGenerator = { generate: () => {} }
-      codeTimer.inputGenerator = inputGenerator
-      chai.spy.on(inputGenerator, ['generate'])
+        codeTimer.time({ method: testFunction, arraySize: 5000 })
 
-      codeTimer.time({ method: testFunction, arraySize: 5000 })
-
-      expect(inputGenerator.generate).to.have.been.called.with(5000)
-    })
-
-    it('uses the printer to output the test run results to console', () => {
-      const codeTimer = new CodeTimer()
-      const printer = { printResults: () => {} }
-      codeTimer.printer = printer
-      chai.spy.on(printer, ['printResults'])
-
-      codeTimer.time({ method: testFunction, arraySize: 5000 })
-
-      expect(printer.printResults).to.have.been.called.with(codeTimer)
+        expect(printer.printResults).to.have.been.called.with(codeTimer)
+      })
     })
   })
 
@@ -73,21 +98,6 @@ describe('CodeTimer', () => {
       codeTimer.finishTime = 1500
 
       expect(codeTimer.runTime()).to.equal(500)
-    })
-  })
-
-  describe('#timeCustom()', () => {
-    it('times a custom made method', () => {
-      const codeTimer = new CodeTimer()
-
-      const customMethod = () => { return 'This is a custom method' }
-      codeTimer.methodUnderTest = customMethod
-      chai.spy.on(codeTimer, ['methodUnderTest'])
-
-      const options = { method: codeTimer.methodUnderTest, arraySize: 5000 }
-      codeTimer.timeCustom(options)
-
-      expect(codeTimer.methodUnderTest).to.have.been.called()
     })
   })
 })

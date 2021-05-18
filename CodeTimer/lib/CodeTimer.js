@@ -15,26 +15,27 @@ export default class CodeTimer {
     const inputArray = this._createInputArray(options.arraySize)
     this.methodUnderTest = options.method
 
+    options.custom
+      ? this._runCustomAlgorithm(inputArray)
+      : this._runAlgorithm(inputArray)
+
+    this.printer.printResults(this)
+  }
+
+  runTime (inputArray) {
+    return this.finishTime - this.startTime
+  }
+
+  _runAlgorithm (inputArray) {
     this._start()
     this.methodUnderTest.call(inputArray)
     this._finish()
-
-    this.printer.printResults(this)
   }
 
-  timeCustom (options) {
-    const inputArray = this._createInputArray(options.arraySize)
-    this.methodUnderTest = options.method
-
+  _runCustomAlgorithm (inputArray) {
     this._start()
     this.methodUnderTest(inputArray)
     this._finish()
-
-    this.printer.printResults(this)
-  }
-
-  runTime () {
-    return this.finishTime - this.startTime
   }
 
   _start () {
