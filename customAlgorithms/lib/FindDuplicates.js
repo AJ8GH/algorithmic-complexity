@@ -1,4 +1,17 @@
 export default function findDuplicates (array) {
-  if (array[0] === array[1]) { return array }
-  return []
+  const duplicates = array.map((element) => {
+    const count = []
+
+    array.forEach(el => {
+      if (el === element) {
+        count.push(el)
+      }
+    })
+
+    console.log(count.length)
+
+    if (count.length > 1) { return element }
+  })
+
+  return duplicates.filter(Boolean)
 }
