@@ -58,18 +58,32 @@ I ran the code timer for the built in JS Array methods `#reverse()` and `#sort()
 ### Reverse
 
 #### Terminal output
+![terminal-output](images/reverse-output-example.png)
+
+#### Results
 ![reverse-results](images/reverse-results.png)
 
 #### Graph
 ![reverse-graph](images/reverse-graph.png)
 
+Time complexity:
+
+**O(n)**
+
 ### Sort
 
 #### Terminal output
+![terminal-output](images/sort-output-example.png)
+
+#### Results
 ![sort-results](images/sort-results.png)
 
 #### Graph
 ![sort-graph](images/sort-graph.png)
+
+Time complexity:
+
+**O(n)**
 
 ## Building Custom Algorithms
 

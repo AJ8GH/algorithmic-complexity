@@ -1,9 +1,8 @@
 {
-  "reporter"   : ["text", "text-summary", "lcov", "html"],
-  "include"    : ["<your-include-wildcard>"],
-  "exclude"    : ["<your-exclude-wildcard>"],
+  "reporter"   : ["text-summary", "lcov", "html"],
   "require"    : ["@babel/register"],
   "sourceMap"  : false,
   "instrument" : false,
-  "all"        : true
+  "include": ["CodeTimer/lib/*.js"]
+
 }
