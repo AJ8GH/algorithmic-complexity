@@ -24,4 +24,10 @@ describe('#findDuplicates()', () => {
       expect(findDuplicates(array)).deep.equal(duplicates)
     })
   })
+
+  describe('edge cases', () => {
+    it('returns empty array when given empty array', () => {
+      expect(findDuplicates([])).deep.equal([])
+    })
+  })
 })
