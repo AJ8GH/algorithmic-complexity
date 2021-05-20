@@ -122,3 +122,36 @@ Switch neighbouring elements until the entire array is sorted.
 Time complexity:
 * Quadratic
 * **O(n^2)**
+
+### Shuffle
+
+Shuffle an array.
+
+Input                 | Output
+----------------------|-----------------------------
+[1]                   | [1]
+[1, 2]                | [2, 1]
+                      |
+                      |
+                      |
+                      |
+
+#### Results
+
+![shuffle-results](images/shuffle-results.png)
+
+![shuffle-graph](images/shuffle-graph.png)
+
+Time complexity:
+
+### Custom Reverse
+
+Reverse an array without using the built in #reverse() function.
+
+#### Results
+
+![custom-reverse-results](images/custom-reverse-results.png)
+
+![custom-reverse-graph](images/custom-reverse-graph.png)
+
+Time complexity:
