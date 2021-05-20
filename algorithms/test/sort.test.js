@@ -5,4 +5,8 @@ describe('#sort()', () => {
   it('returns a 1 element array', () => {
     expect(sort([1])).to.deep.equal([1])
   })
+
+  it('sorts a 2 element array', () => {
+    expect(sort([2, 1])).to.deep.equal([1, 2])
+  })
 })
