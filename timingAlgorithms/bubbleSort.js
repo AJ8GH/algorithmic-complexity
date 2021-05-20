@@ -3,4 +3,4 @@ import bubbleSort from '../algorithms/lib/bubbleSort.js'
 
 const algoRunner = new AlgoRunner()
 
-algoRunner.run({ method: bubbleSort, size: 1000, custom: true })
+algoRunner.run({ method: bubbleSort, size: 4000, custom: true })

@@ -99,11 +99,25 @@ Input                    | Output
 `[]`                     | `[]`
 `[2, '2']`               | `[]`
 
-### Results
+#### Results
 
 ![find-duplicates-results](images/find-duplicates-results.png)
 
 ![find-duplicates-graph](images/find-duplicates-graph.png)
+
+Time complexity:
+* Quadratic
+* **O(n^2)**
+
+### Bubbble Sort
+
+Switch neighbouring elements until the entire array is sorted.
+
+#### Results
+
+![bubble-sort-results](images/bubble-sort-results.png)
+
+![bubble-sort-graph](images/bubble-sort-graph.png)
 
 Time complexity:
 * Quadratic

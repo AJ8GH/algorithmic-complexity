@@ -8,8 +8,6 @@ export default function bubbleSort (array) {
         count += 1
       }
     })
-    if (count === 0) {
-      return array
-    }
+    if (count === 0) { return array }
   }
 }
