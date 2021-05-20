@@ -9,4 +9,8 @@ describe('#sort()', () => {
   it('sorts a 2 element array', () => {
     expect(sort([2, 1])).to.deep.equal([1, 2])
   })
+
+  it('sorts a 2 element array', () => {
+    expect(sort([1, 2])).to.deep.equal([1, 2])
+  })
 })

@@ -1,5 +1,10 @@
 export default function sort (array) {
-  if (array.length === 2) { return array.reverse() }
+  array.forEach((element, i) => {
+    if (array[i + 1] < element) {
+      array[i] = array[i + 1]
+      array[i + 1] = element
+    }
+  })
   return array
 }
 
