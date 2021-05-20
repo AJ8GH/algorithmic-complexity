@@ -1,4 +1,4 @@
-import AlgoRunner from '../CodeTimer/lib/AlgoRunner.js'
+import AlgoRunner from '../codeTimer/lib/AlgoRunner.js'
 import bubbleSort from '../algorithms/lib/bubbleSort.js'
 
 const algoRunner = new AlgoRunner()
