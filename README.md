@@ -127,15 +127,6 @@ Time complexity:
 
 Shuffle an array.
 
-Input                 | Output
-----------------------|-----------------------------
-[1]                   | [1]
-[1, 2]                | [2, 1]
-                      |
-                      |
-                      |
-                      |
-
 #### Results
 
 ![shuffle-results](images/shuffle-results.png)
@@ -143,6 +134,8 @@ Input                 | Output
 ![shuffle-graph](images/shuffle-graph.png)
 
 Time complexity:
+* Linear
+* **O(n)**
 
 ### Custom Reverse
 
