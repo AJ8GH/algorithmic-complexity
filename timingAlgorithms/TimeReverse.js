@@ -1,4 +1,4 @@
-import AlgorithmRunner from '../CodeTimer/lib/AlgorithmRunner.js'
+import AlgorithmRunner from '../codeTimer/lib/AlgoRunner.js'
 
 const algorithmRunner = new AlgorithmRunner()
 

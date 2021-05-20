@@ -90,7 +90,18 @@ Time complexity:
 ### Find duplicates
 Given an array of strings or numbers, find all the elements that appear more than once.
 
+Input                    | Output
+-------------------------|--------------
+`[1]`                    | `[]`
+`[1, 1]`                 | `[1, 1]`
+`[1, 1, 2]`              | `[1, 1]`
+`[1, 1, 2, 'a', 'a']`    | `[1, 1, 'a', 'a']`
+`[]`                     | `[]`
+`[2, '2']`               | `[]`
+
 ### Results
+
+![find-duplicates-results](images/find-duplicates-results.png)
 
 ![find-duplicates-graph](images/find-duplicates-graph.png)
 
