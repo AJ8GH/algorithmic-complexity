@@ -11,6 +11,10 @@ describe('#reverse()', () => {
   })
 
   it('reverses a 3 element array', () => {
-    expect(reverse([3, 1, 2])).to.deep.equal([2, 1, 3])
+    expect(reverse([3, 2, 1])).to.deep.equal([1, 2, 3])
+  })
+
+  it('reverses a 4 element array', () => {
+    expect(reverse([4, 3, 2, 1])).to.deep.equal([1, 2, 3, 4])
   })
 })
