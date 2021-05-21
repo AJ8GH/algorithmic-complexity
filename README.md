@@ -101,6 +101,10 @@ Input                    | Output
 
 #### Results
 
+Return the elements in a array which appear more than once.
+
+[View Algorithm](../algorithmic-complexity/algorithms/lib/findDuplicates.js)
+
 ![find-duplicates-results](images/find-duplicates-results.png)
 
 ![find-duplicates-graph](images/find-duplicates-graph.png)
@@ -112,6 +116,8 @@ Time complexity:
 ### Bubbble Sort
 
 Switch neighbouring elements until the entire array is sorted.
+
+[View Algorithm](../algorithmic-complexity/algorithms/lib/bubbleSort.js)
 
 #### Results
 
@@ -127,6 +133,8 @@ Time complexity:
 
 Shuffle an array.
 
+[View Algorithm](../algorithmic-complexity/algorithms/lib/shuffle.js)
+
 #### Results
 
 ![shuffle-results](images/shuffle-results.png)
@@ -139,7 +147,9 @@ Time complexity:
 
 ### Custom Reverse
 
-Reverse an array without using the built in #reverse() function.
+Reverse an array without using the built in reverse function.
+
+[View Algorithm](../algorithmic-complexity/algorithms/lib/reverse.js)
 
 #### Results
 
