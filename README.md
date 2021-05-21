@@ -128,3 +128,13 @@ Reverse an array without using the built in reverse function.
 #### Time complexity
 * **Linear**
 * **O(n)**
+
+### Last
+
+Return last element of array.
+
+[View Algorithm](https://github.com/AJ8GH/algorithmic-complexity/blob/main/algorithms/lib/last.js)
+
+#### Time complexity
+* **Constant**
+* **O(1)**
