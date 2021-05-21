@@ -57,38 +57,31 @@ I ran the code timer for the built in JS Array methods `#reverse()` and `#sort()
 
 ### Reverse
 
-#### Terminal output
-![terminal-output](images/reverse-output-example.png)
-
-#### Results
-![reverse-results](images/reverse-results.png)
-
 #### Graph
+
 ![reverse-graph](images/reverse-graph.png)
 
-Time complexity:
-* Linear
+#### Time complexity
+* **Linear**
 * **O(n)**
 
 ### Sort
 
-#### Terminal output
-![terminal-output](images/sort-output-example.png)
-
-#### Results
-![sort-results](images/sort-results.png)
-
 #### Graph
 ![sort-graph](images/sort-graph.png)
 
-Time complexity:
-* Linear
+#### Time complexity
+* **Linear**
 * **O(n)**
 
 ## Building Custom Algorithms
 
 ### Find duplicates
-Given an array of strings or numbers, find all the elements that appear more than once.
+
+Return the elements in a array which appear more than once.
+
+#### View Algorithm
+[**Find Duplicates Algorithm**](https://github.com/AJ8GH/algorithmic-complexity/blob/main/algorithms/lib/findDuplicates.js)
 
 Input                    | Output
 -------------------------|--------------
@@ -99,50 +92,39 @@ Input                    | Output
 `[]`                     | `[]`
 `[2, '2']`               | `[]`
 
-#### Results
-
-Return the elements in a array which appear more than once.
-
-[View Algorithm](https://github.com/AJ8GH/algorithmic-complexity/blob/main/algorithms/lib/findDuplicates.js)
-
-![find-duplicates-results](images/find-duplicates-results.png)
-
+#### Graph
 ![find-duplicates-graph](images/find-duplicates-graph.png)
 
-Time complexity:
-* Quadratic
+#### Time complexity
+* **Quadratic**
 * **O(n^2)**
 
-### Bubbble Sort
+### Bubble Sort
 
-Switch neighbouring elements until the entire array is sorted.
+Sort an array by swapping neighbouring elements until the entire array is sorted.
 
 [View Algorithm](https://github.com/AJ8GH/algorithmic-complexity/blob/main/algorithms/lib/bubbleSort.js)
 
-#### Results
-
-![bubble-sort-results](images/bubble-sort-results.png)
-
+#### Graph
 ![bubble-sort-graph](images/bubble-sort-graph.png)
 
-Time complexity:
-* Quadratic
+#### Time complexity
+* **Quadratic**
 * **O(n^2)**
 
 ### Shuffle
 
-Shuffle an array.
+Create an algorithm to shuffle an array.
 
-[View Algorithm](https://github.com/AJ8GH/algorithmic-complexity/blob/main/algorithms/lib/shuffle.js)
+#### View Algorithm
+[**Shuffle Algorithm**](https://github.com/AJ8GH/algorithmic-complexity/blob/main/algorithms/lib/shuffle.js)
 
-#### Results
-
-![shuffle-results](images/shuffle-results.png)
+#### Graph
 
 ![shuffle-graph](images/shuffle-graph.png)
 
-Time complexity:
-* Linear
+#### Time complexity
+* **Linear**
 * **O(n)**
 
 ### Custom Reverse
@@ -151,12 +133,9 @@ Reverse an array without using the built in reverse function.
 
 [View Algorithm](https://github.com/AJ8GH/algorithmic-complexity/blob/main/algorithms/lib/reverse.js)
 
-#### Results
-
-![custom-reverse-results](images/custom-reverse-results.png)
-
+#### Graph
 ![custom-reverse-graph](images/custom-reverse-graph.png)
 
-Time complexity:
-* Linear
+#### Time complexity
+* **Linear**
 * **O(n)**
