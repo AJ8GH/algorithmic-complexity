@@ -3,7 +3,7 @@ import Printer from './Printer.js'
 
 export default class CodeTimer {
   constructor () {
-    this.methodUnderTest = null
+    this.method = null
     this.arraySize = null
     this.startTime = null
     this.finishTime = null
@@ -12,37 +12,41 @@ export default class CodeTimer {
   }
 
   time (options) {
-    const inputArray = this._createInputArray(options.arraySize)
-    this.methodUnderTest = options.method
+    const inputArray = this._createInputArray(options.size)
+    this.method = options.method
 
     options.custom
       ? this._runCustomAlgorithm(inputArray)
       : this._runAlgorithm(inputArray)
 
-    this.printer.printResults(this)
+    return this.runTime()
   }
 
   runTime () {
     return this.finishTime - this.startTime
   }
 
+  printResults () {
+    this.printer.printResults(this)
+  }
+
   _runAlgorithm (inputArray) {
-    this._start()
-    this.methodUnderTest.call(inputArray)
-    this._finish()
+    this.start()
+    this.method.call(inputArray)
+    this.finish()
   }
 
   _runCustomAlgorithm (inputArray) {
-    this._start()
-    this.methodUnderTest(inputArray)
-    this._finish()
+    this.start()
+    this.method(inputArray)
+    this.finish()
   }
 
-  _start () {
+  start () {
     this.startTime = new Date().getTime()
   }
 
-  _finish () {
+  finish () {
     this.finishTime = new Date().getTime()
   }
 
