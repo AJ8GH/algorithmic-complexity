@@ -80,17 +80,7 @@ I ran the code timer for the built in JS Array methods `#reverse()` and `#sort()
 
 Return the elements in a array which appear more than once.
 
-#### View Algorithm
-[**Find Duplicates Algorithm**](https://github.com/AJ8GH/algorithmic-complexity/blob/main/algorithms/lib/findDuplicates.js)
-
-Input                    | Output
--------------------------|--------------
-`[1]`                    | `[]`
-`[1, 1]`                 | `[1, 1]`
-`[1, 1, 2]`              | `[1, 1]`
-`[1, 1, 2, 'a', 'a']`    | `[1, 1, 'a', 'a']`
-`[]`                     | `[]`
-`[2, '2']`               | `[]`
+[View Algorithm](https://github.com/AJ8GH/algorithmic-complexity/blob/main/algorithms/lib/findDuplicates.js)
 
 #### Graph
 ![find-duplicates-graph](images/find-duplicates-graph.png)
@@ -116,8 +106,7 @@ Sort an array by swapping neighbouring elements until the entire array is sorted
 
 Create an algorithm to shuffle an array.
 
-#### View Algorithm
-[**Shuffle Algorithm**](https://github.com/AJ8GH/algorithmic-complexity/blob/main/algorithms/lib/shuffle.js)
+[View Algorithm](https://github.com/AJ8GH/algorithmic-complexity/blob/main/algorithms/lib/shuffle.js)
 
 #### Graph
 
