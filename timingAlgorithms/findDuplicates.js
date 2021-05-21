@@ -1,5 +1,5 @@
 import findDuplicates from '../algorithms/lib/FindDuplicates.js'
-import AlgoRunner from '../codeTimer/lib/AlgoRunner.js'
+import AlgoRunner from '../AlgoTimer/lib/AlgoRunner.js'
 
 const algoRunner = new AlgoRunner()
 

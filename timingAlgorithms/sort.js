@@ -1,4 +1,4 @@
-import AlgoRunner from '../CodeTimer/lib/AlgoRunner.js'
+import AlgoRunner from '../AlgoTimer/lib/AlgoRunner.js'
 
 const algoRunner = new AlgoRunner()
 
