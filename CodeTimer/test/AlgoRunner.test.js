@@ -6,7 +6,7 @@ chai.use(spies)
 
 describe('AlgoRunner', () => {
   describe('#run()', () => {
-    it('runs the codeTimer 20 times by default', () => {
+    it('runs the codeTimer 20 times + 4 control samples by default', () => {
       const algoRunner = new AlgoRunner()
       const testMethod = () => {}
       const codeTimer = { time: () => {} }
@@ -17,7 +17,7 @@ describe('AlgoRunner', () => {
       const options = { method: testMethod, size: 1000 }
       algoRunner.run(options)
 
-      expect(codeTimer.time).to.have.been.called(20)
+      expect(codeTimer.time).to.have.been.called(24)
     })
   })
 })

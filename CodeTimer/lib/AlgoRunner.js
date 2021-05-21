@@ -25,6 +25,7 @@ export default class AlgoRunner {
     ) {
       inputSample.push(arraySize)
     }
+    inputSample.unshift(step * 0.25, step * 0.5, step * 0.75, step)
     return inputSample
   }
 }

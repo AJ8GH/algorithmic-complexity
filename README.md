@@ -148,3 +148,5 @@ Reverse an array without using the built in #reverse() function.
 ![custom-reverse-graph](images/custom-reverse-graph.png)
 
 Time complexity:
+* Linear
+* **O(n)**
