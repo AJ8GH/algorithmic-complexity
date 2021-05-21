@@ -103,7 +103,7 @@ Input                    | Output
 
 Return the elements in a array which appear more than once.
 
-[View Algorithm](../algorithmic-complexity/algorithms/lib/findDuplicates.js)
+[View Algorithm](https://github.com/AJ8GH/algorithmic-complexity/blob/main/algorithms/lib/findDuplicates.js)
 
 ![find-duplicates-results](images/find-duplicates-results.png)
 
@@ -117,7 +117,7 @@ Time complexity:
 
 Switch neighbouring elements until the entire array is sorted.
 
-[View Algorithm](../algorithmic-complexity/algorithms/lib/bubbleSort.js)
+[View Algorithm](https://github.com/AJ8GH/algorithmic-complexity/blob/main/algorithms/lib/bubbleSort.js)
 
 #### Results
 
@@ -133,7 +133,7 @@ Time complexity:
 
 Shuffle an array.
 
-[View Algorithm](../algorithmic-complexity/algorithms/lib/shuffle.js)
+[View Algorithm](https://github.com/AJ8GH/algorithmic-complexity/blob/main/algorithms/lib/shuffle.js)
 
 #### Results
 
@@ -149,7 +149,7 @@ Time complexity:
 
 Reverse an array without using the built in reverse function.
 
-[View Algorithm](../algorithmic-complexity/algorithms/lib/reverse.js)
+[View Algorithm](https://github.com/AJ8GH/algorithmic-complexity/blob/main/algorithms/lib/reverse.js)
 
 #### Results
 
