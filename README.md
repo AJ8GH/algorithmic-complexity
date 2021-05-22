@@ -44,12 +44,11 @@ h     | Exponential  | O(2^n)
 
 ## Building a timing framework
 
-I used TDD to build a timing framework using Node.js and Mocha - see `./lib/`
+I used TDD to build a timing framework with a simple, flexible interface using Node.js and Mocha - see `./CodeTimer`. I then published it as a package on NPM.
 
-I designed the framework so that it had as simple an interface as possible. The `#run()` function in the `AlgorithmRunner` class be passed an object containing a method to time and, and a starting array size. It will then automatically generate 20 arrays increasing in size by the a step-size of the initial amount, filled with random numbers. the code timer class will then run the method under test for each array, outputting the results to the console.
+The CodeTimer class can be imported and used to time code. The `#run()` function can be passed an object containing a method to time and a starting array size. It will then automatically generate 20 arrays increasing in size, filled with random numbers. It then runs the method on each array, printing the size and the run time to the console.
 
-I ran the code timer for the built in JS Array methods `#reverse()` and `#sort()`. I then took the output and plotted graphs to analyse the time complexity of these algorithms. The results are below.
-
+The timer can be used to time custom functions as well as built it ones. It can be used to time a single run or multiple. It can also be used manually to time the efficiency of any code, using the `#start()` and `#finish()` functions.
 
 ### Results
 
