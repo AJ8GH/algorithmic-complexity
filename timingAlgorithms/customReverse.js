@@ -1,6 +1,6 @@
-import AlgoRunner from '../CodeTimer/lib/CodeRunner.js'
+import CodeTimer from '../CodeTimer/lib/CodeTimer.js'
 import reverse from '../algorithms/lib/reverse.js'
 
-const algoRunner = new AlgoRunner()
+const codeTimer = new CodeTimer()
 
-algoRunner.run({ method: reverse, size: 2000000, custom: true })
+codeTimer.run({ method: reverse, size: 2000000, custom: true })

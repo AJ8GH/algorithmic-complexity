@@ -1,6 +1,6 @@
-import findDuplicates from '../algorithms/lib/FindDuplicates.js'
-import AlgoRunner from '../CodeTimer/lib/CodeRunner.js'
+import CodeTimer from '../CodeTimer/lib/CodeTimer.js'
+import findDuplicates from '../algorithms/lib/findDuplicates.js'
 
-const algoRunner = new AlgoRunner()
+const codeTimer = new CodeTimer()
 
-algoRunner.run({ method: findDuplicates, size: 4000, custom: true })
+codeTimer.run({ method: findDuplicates, size: 4000, custom: true })
