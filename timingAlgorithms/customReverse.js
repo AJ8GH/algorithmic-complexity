@@ -1,4 +1,4 @@
-import AlgoRunner from '../AlgoTimer/lib/AlgoRunner.js'
+import AlgoRunner from '../CodeTimer/lib/CodeRunner.js'
 import reverse from '../algorithms/lib/reverse.js'
 
 const algoRunner = new AlgoRunner()

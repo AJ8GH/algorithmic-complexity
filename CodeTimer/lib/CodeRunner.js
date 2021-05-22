@@ -1,20 +1,18 @@
-import AlgoTimer from './AlgoTimer.js'
-
 const DEFAULT_RUNS = 20
+const DEFAULT_SIZE = 1000
 
-export default class AlgoRunner {
-  constructor () {
-    this.algoTimer = new AlgoTimer()
-  }
-
+export default class CodeRunner {
   run (options) {
     options.runs ||= DEFAULT_RUNS
+    options.size ||= DEFAULT_SIZE
+
     const inputSample = this._createIntputSample(options)
+    const { codeTimer } = options
+
     inputSample.forEach((arraySize) => {
-      this.algoTimer.time(
-        { method: options.method, size: arraySize, custom: options.custom }
-      )
-      this.algoTimer.printResults()
+      options.size = arraySize
+      codeTimer.time(options)
+      codeTimer.printResults()
     })
   }
 

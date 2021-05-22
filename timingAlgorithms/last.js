@@ -1,6 +1,6 @@
-import AlgoRunner from '../AlgoTimer/lib/AlgoRunner.js'
+import AlgoRunner from '../CodeTimer/lib/CodeRunner.js'
 import last from '../algorithms/lib/last.js'
 
-const algoRunner = new AlgoRunner()
+const codeRunner = new AlgoRunner()
 
-algoRunner.run({ method: last, size: 2000000, custom: true })
+codeRunner.run({ method: last, size: 2000000, custom: true })

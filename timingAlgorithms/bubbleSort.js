@@ -1,6 +1,6 @@
-import AlgoRunner from '../AlgoTimer/lib/AlgoRunner.js'
+import CodeRunner from '../CodeTimer/lib/CodeRunner.js'
 import bubbleSort from '../algorithms/lib/bubbleSort.js'
 
-const algoRunner = new AlgoRunner()
+const codeRunner = new CodeRunner()
 
-algoRunner.run({ method: bubbleSort, size: 4000, custom: true })
+codeRunner.run({ method: bubbleSort, size: 4000, custom: true })
