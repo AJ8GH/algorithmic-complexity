@@ -3,7 +3,6 @@ Algorithmic Complexity
 
 [![Build Status](https://travis-ci.com/AJ8GH/algorithmic-complexity.svg?branch=main)](https://travis-ci.com/AJ8GH/algorithmic-complexity) [![codecov](https://codecov.io/gh/AJ8GH/algorithmic-complexity/branch/main/graph/badge.svg?token=NIRGH88CMT)](https://codecov.io/gh/AJ8GH/algorithmic-complexity) [![Maintainability](https://api.codeclimate.com/v1/badges/632627257c17ccb5d748/maintainability)](https://codeclimate.com/github/AJ8GH/algorithmic-complexity/maintainability) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![BCH compliance](https://bettercodehub.com/edge/badge/AJ8GH/algorithmic-complexity?branch=main)](https://bettercodehub.com/)
 
-
 A course focused on Computer Science concepts around algorithmic complexity.
 
 ## Learning objectives
@@ -41,12 +40,11 @@ g     | Polynomial   | O(n^C) **
 h     | Exponential  | O(2^n)
 
 ** C = constant number > 1
-
 ## Building a timing framework
 
 I used TDD to build a timing framework with a simple, flexible interface using Node.js and Mocha - see `./CodeTimer`. I then published it as a package on NPM.
 
-The CodeTimer class can be imported and used to time code. The `#run()` function can be passed an object containing a method to time and a starting array size. It will then automatically generate 20 arrays increasing in size, filled with random numbers. It then runs the method on each array, printing the size and the run time to the console.
+The CodeTimer class can be imported and used to time code. The `#run()` function can be passed an object containing a method to time and a starting array size. It will then automatically generate 20 arrays increasing in size, filled with random numbers. It then runs the method on each array, printing the size and the run time to the console. 4 additional arrays are run at the start, in order to warm up the system and reduce any
 
 The timer can be used to time custom functions as well as built it ones. It can be used to time a single run or multiple. It can also be used manually to time the efficiency of any code, using the `#start()` and `#finish()` functions.
 
@@ -137,3 +135,47 @@ Return last element of array.
 #### Time complexity
 * **Constant**
 * **O(1)**
+
+## Improving Efficiency of Algorithms
+
+### Quadratic Shuffle
+
+A shuffle algorithm where efficiency can be improved
+
+```js
+function quadraticShuffle (array) {
+  const newArray = []
+  while (true) {
+    const random = Math.floor(Math.random() * array.length)
+    const el = array.splice(random, 1)[0]
+    newArray.push(el)
+    if (array.length === 0) { break }
+  }
+  return newArray
+}
+```
+
+Algorithm is quadratic since it iterates through the array and performs a linear operation of delete at a specific index on each iteration:
+
+![quadratic-shuffle-graph](images/quadratic-shuffle-graph.png)
+
+To improve the algorithm, instead of deleting from the middle of the array, we can swap it with the last element before deleting it, substituting a linear operation with a constant one:
+
+```js
+export default function linearShuffle (array) {
+  const newArray = []
+  while (array.length > 0) {
+    const random = Math.floor(Math.random() * array.length)
+    const el = array[random]
+    newArray.push(el)
+    array[random] = array[array.length - 1]
+    array[array.length - 1] = el
+    array.pop()
+  }
+  return newArray
+}
+```
+
+The new algorithm runs much faster, in linear time:
+
+![linear-shuffle](images/linear-shuffle-graph.png)

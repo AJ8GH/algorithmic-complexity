@@ -17,7 +17,7 @@ describe('CodeTimer', () => {
         const codeTimer = new CodeTimer()
         const startTime = sinon.useFakeTimers(new Date().getTime())
 
-        codeTimer.time({ method: testFunction })
+        codeTimer.time({ method: [].sort })
 
         expect(codeTimer.startTime).to.equal(startTime.now)
       })
@@ -26,14 +26,14 @@ describe('CodeTimer', () => {
         const codeTimer = new CodeTimer()
         const startTime = sinon.useFakeTimers(new Date().getTime())
 
-        codeTimer.time({ method: testFunction })
+        codeTimer.time({ method: [].sort })
 
         expect(codeTimer.finishTime).to.equal(startTime.now)
       })
     })
 
     describe('calling the method under test', () => {
-      it('Calls the method under test', () => {
+      it('calls the method under test', () => {
         const codeTimer = new CodeTimer()
         codeTimer.method = testFunction
 
@@ -42,6 +42,17 @@ describe('CodeTimer', () => {
         codeTimer.time({ method: codeTimer.method, size: 5000 })
 
         expect(codeTimer.method).to.have.been.called()
+      })
+
+      it('can be called with an argument', () => {
+        const codeTimer = new CodeTimer()
+        codeTimer.method = [].push
+
+        chai.spy.on(codeTimer, ['method'])
+
+        codeTimer.time({ method: codeTimer.method, size: 5000, arg: 1 })
+
+        expect(codeTimer.method).to.have.been.called.with(1)
       })
 
       it('calls a custom method when specified in options', () => {

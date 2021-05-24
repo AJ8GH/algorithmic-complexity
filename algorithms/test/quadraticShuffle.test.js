@@ -1,10 +1,13 @@
 import { expect } from 'chai'
 import sinon from 'sinon'
-import shuffle from '../lib/shuffle.js'
+import quadraticShuffle from '../lib/quadraticShuffle.js'
 
-describe('#shuffle()', () => {
+beforeEach(() => sinon.restore())
+afterEach(() => sinon.restore())
+
+describe('#quadraticShuffle()', () => {
   it('returns a one element array', () => {
-    expect(shuffle([1])).to.deep.equal([1])
+    expect(quadraticShuffle([1])).to.deep.equal([1])
   })
 
   it('shuffles a 2 element array', () => {
@@ -12,7 +15,7 @@ describe('#shuffle()', () => {
 
     sinon.stub(Math, 'random').returns(0.5)
 
-    expect(shuffle([1, 2])).to.deep.equal([2, 1])
+    expect(quadraticShuffle([1, 2])).to.deep.equal([2, 1])
 
     sinon.restore()
   })
@@ -22,7 +25,7 @@ describe('#shuffle()', () => {
 
     sinon.stub(Math, 'random').returns(0.5)
 
-    expect(shuffle([1, 2, 3])).to.deep.equal([2, 3, 1])
+    expect(quadraticShuffle([1, 2, 3])).to.deep.equal([2, 3, 1])
 
     sinon.restore()
   })

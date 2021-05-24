@@ -1,7 +1,7 @@
 import { expect } from 'chai'
 import divideSort from '../lib/divideSort.js'
 
-describe('#divideSort()', () => {
+xdescribe('#divideSort()', () => {
   it('returns a one element array', () => {
     expect(divideSort([1])).to.deep.equal([1])
   })
@@ -10,7 +10,7 @@ describe('#divideSort()', () => {
     expect(divideSort([2, 1])).to.deep.equal([1, 2])
   })
 
-  xit('sorts a 3 element array', () => {
+  it('sorts a 3 element array', () => {
     expect(divideSort([2, 3, 1])).to.deep.equal([1, 2, 3])
   })
 })
