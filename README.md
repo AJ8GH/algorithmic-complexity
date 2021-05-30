@@ -222,7 +222,7 @@ Algorithm is quadratic since it iterates through the array and performs a linear
 To improve the algorithm, instead of deleting from the middle of the array, we can swap it with the last element before deleting it, substituting a linear operation with a constant one:
 
 ```js
-export default function linearShuffle (array) {
+function linearShuffle (array) {
   const newArray = []
   while (array.length > 0) {
     const random = Math.floor(Math.random() * array.length)
@@ -239,3 +239,56 @@ export default function linearShuffle (array) {
 The new algorithm runs much faster, in linear time:
 
 ![linear-shuffle](images/linear-shuffle-graph.png)
+
+### Quadratic Reverse
+
+The algorithm is quadratic, due to inserting at the start of an array - a linear operation - on every iteration
+
+```js
+function quadraticReverse (arr) {
+  const newArr = []
+  for (let i = 0; i < arr.length; i++) {
+    newArr.unshift(arr[i])
+  }
+  return newArr
+}
+```
+
+![quadratic-reverse-graph](images/quadratic-reverse-graph.png)
+
+## Data Structures
+
+Ways to store data in Memory. Can be optimised for different use cases. E.g. arrays and lists are ordered. Hashes have faster lookup times. etc.
+
+### Different Data Structures
+
+* Array
+* Object
+* Hash / Dictionary
+* Set / Hashtable
+* Tuple
+* Linked List
+* Tree
+* Trie
+* Graph
+* Queue
+* Stack
+
+### Exercise
+
+Lookup times in arrays are linear. Design a data structure so that it's lookup time will be constant.
+
+#### Memory Heap
+```
+    0   1   2   3   4
+0 |___|___|___|___|___|
+1 |_5_|_6_|_7_|_8_|_9_|
+2 |___|___|___|___|___|
+3 |___|___|___|___|___|
+4 |___|___|___|___|___|
+
+```
+
+Numbers 5 6 7 8 9 are stored in my data structure. Find the element in my structure that = 8
+
+In an array the computer would need to iterate through the structure and check the value of each element. To improve efficiency, each element will be assigned a memory address that it can use to locate the element
