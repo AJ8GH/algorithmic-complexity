@@ -278,17 +278,89 @@ Ways to store data in Memory. Can be optimised for different use cases. E.g. arr
 
 Lookup times in arrays are linear. Design a data structure so that it's lookup time will be constant.
 
-#### Memory Heap
+### Solutions
+
+#### Solution 1
+
+Element stored in memory index corresponding to its value:
+
+```js
+// store
+memory[value] = value
+
+// find
+memory[value]
+
+// delete
+memory[value] = nil
 ```
-    0   1   2   3   4
-0 |___|___|___|___|___|
-1 |_5_|_6_|_7_|_8_|_9_|
-2 |___|___|___|___|___|
-3 |___|___|___|___|___|
-4 |___|___|___|___|___|
 
+Improvements on array: constant look up and delete
+
+Trade-offs: unordered, possible collisions, can't store duplicates, difficult to store very large numbers
+
+#### Solution 2
+
+Element stored at index == (value % length of memory allocation)
+
+```js
+// store
+memory[value % memory.length] = value
+
+// find
+memory[value % memory.length]
+
+// delete
+memory[value % memory.length] = nil
+
+// example - memory length = 15
+// store the number 2:
+memory.length == 15
+
+2 % 15 = 2
+
+memory[2] = 2
 ```
 
-Numbers 5 6 7 8 9 are stored in my data structure. Find the element in my structure that = 8
+Improvements on solution 1: still constant look up and delete, more memory efficient - can store bigger numbers
 
-In an array the computer would need to iterate through the structure and check the value of each element. To improve efficiency, each element will be assigned a memory address that it can use to locate the element
+Trade-offs: still unordered, collisions possible
+
+#### Solution 3
+
+Each memory index is either nil or links to an array of up to 5 elements
+
+element stored in array, which is stored at memory index == value % memory length
+colliding numbers are stored in the array
+to find value, go to correspondning index and iterate through the array.
+
+```js
+// store
+memory[value % memory.length].push(value)
+
+// find
+array = memory[value % memory.length]
+
+array.filter(element => element === value)[0]
+
+// delete
+array = memory[value % memory.length]
+
+newArray.filter(element => element !== value)
+
+memory[value % memory.length] = newArray
+
+// example - memory length = 15
+// store the numbers 2 and 17:
+memory.length == 15
+
+2 % 15 = 2
+memory[2] = [2]
+
+17 % 15 = 2
+memory[2] = [2, 17]
+```
+
+Improvements on solution 2: still constant look up and delete, since only have to iterate through 5 numbers max, less chance of collisions, can store more numbers
+
+Trade-offs: still unordered, collisions still possible, even if less frequent
