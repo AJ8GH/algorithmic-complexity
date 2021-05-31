@@ -1,4 +1,4 @@
-import CodeTimer from '../CodeTimer/lib/CodeTimer.js'
+import CodeTimer from '@aj8/code-timer'
 import reverse from '../algorithms/lib/reverse.js'
 
 const codeTimer = new CodeTimer()

@@ -1,4 +1,4 @@
-import CodeTimer from '../CodeTimer/lib/CodeTimer.js'
+import CodeTimer from '@aj8/code-timer'
 import bubbleSort from '../algorithms/lib/bubbleSort.js'
 
 const codeTimer = new CodeTimer()

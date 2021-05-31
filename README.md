@@ -262,7 +262,7 @@ Ways to store data in Memory. Can be optimised for different use cases. E.g. arr
 
 ### Different Data Structures
 
-* Array
+* Array / List
 * Object
 * Hash / Dictionary
 * Set / Hashtable
@@ -364,3 +364,22 @@ memory[2] = [2, 17]
 Improvements on solution 2: still constant look up and delete, since only have to iterate through 5 numbers max, less chance of collisions, can store more numbers
 
 Trade-offs: still unordered, collisions still possible, even if less frequent
+
+### Hash Table
+
+Same as solution 3, but re-map anytime you get too many collisions - i.e. double the memory allocation (and maybe + 1 to change the modulo and reduce the collisions)
+
+- Different to a hash map or a dictionary - does not use key value pairs
+- Collection of values only
+- Very quick operations - constant add, delete and find
+- No duplicates
+- No order
+
+#### Hash / Hashmap /  Dictionary
+
+**Hashes** and **Dictionaries** are also based on hash tables, but instead of storing values, they store keys which point to values. Uses the same data structure as a hash table to store the keys - arrays of keys stored at value % mem.length, remapping to make more space when collisions occur.
+
+- Look up by key is constant time
+- Look up by value is linear since it has to loop through every key
+
+Limitations of current structure - storing non numeric values

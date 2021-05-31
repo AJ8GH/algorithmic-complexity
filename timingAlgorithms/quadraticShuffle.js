@@ -1,4 +1,4 @@
-import CodeTimer from '../../CodeTimer/lib/CodeTimer.js'
+import CodeTimer from '@aj8/code-timer'
 import quadraticShuffle from '../../algorithms/lib/quadraticShuffle.js'
 
 const codeTimer = new CodeTimer()
