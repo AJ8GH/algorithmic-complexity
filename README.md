@@ -375,7 +375,7 @@ Same as solution 3, but re-map anytime you get too many collisions - i.e. double
 - No duplicates
 - No order
 
-#### Hash / Hashmap /  Dictionary
+#### Hash / Hashmap / Dictionary
 
 **Hashes** and **Dictionaries** are also based on hash tables, but instead of storing values, they store keys which point to values. Uses the same data structure as a hash table to store the keys - arrays of keys stored at value % mem.length, remapping to make more space when collisions occur.
 
@@ -383,3 +383,11 @@ Same as solution 3, but re-map anytime you get too many collisions - i.e. double
 - Look up by value is linear since it has to loop through every key
 
 Limitations of current structure - storing non numeric values
+
+## Linear find duplicates
+
+Find duplicates algorithm with linear complexity, through using sets.
+
+[Algorithm](https://github.com/AJ8GH/algorithmic-complexity/blob/main/algorithms/lib/linearFindDuplicates.js)
+
+![linear-find-duplicates-graph](images/linear-find-duplicates-graph.png)
