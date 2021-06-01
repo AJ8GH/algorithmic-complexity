@@ -36,21 +36,34 @@ c     | Square root  | O(sqrt n)
 d     | Linear       | O(n)
 e     | Quadratic    | O(n^2)
 f     | Cubic        | O(n^3)
-g     | Polynomial   | O(n^C) **
+g     | Polynomial   | O(n^k)
 h     | Exponential  | O(2^n)
 
-** C = constant number > 1
+*k = some constant > 1*
+
 ## Building a timing framework
 
-I used TDD to build a timing framework with a simple, flexible interface using Node.js and Mocha - see `./CodeTimer`. I then published it as a package on NPM.
+The first step towards measuring algorithmic complexity was designing and building a timing framework. I used TDD and OOP principles to build a timing framework with Node.js and Mocha. I test drove the code-timer module in this repository, before transferring it to a stand-alone repository, seting up CI/CD and publishing it as an NPM package. Once it was published, I removed the code-timer from this repo and installed it as an NPM module instead, using this to time my code.
 
-The CodeTimer class can be imported and used to time code. The `#run()` function can be passed an object containing a method to time and a starting array size. It will then automatically generate 20 arrays increasing in size, filled with random numbers. It then runs the method on each array, printing the size and the run time to the console. 4 additional arrays are run at the start, in order to warm up the system and reduce any
+### Code Timer
+* [GitHub Repository](https://github.com/AJ8GH/code-timer)
+* [NPM Package Homepage](https://www.npmjs.com/package/@aj8/code-timer)
 
-The timer can be used to time custom functions as well as built it ones. It can be used to time a single run or multiple. It can also be used manually to time the efficiency of any code, using the `#start()` and `#finish()` functions.
+**The framework can be used:**
+- As a manual timer to time any code, using the `#start()` and `#stop()` functions.
+- To time built in functions or custom made algorithms.
+- To time an algorithm on a single array using the .
+- To time an algorithm on multiple arrays with increasing size
 
-### Results
+**Class responsibilities:**
+- The `CodeTimer` class is responsible for timing the code.
+- The `CodeRunner` class is responsible for running the timer on multiple inputs.
+- The `InputGenerator` class is responsible for creating arrays of random numbers to run the algorithms on.
+- The `Printer` class is responsible for outputting the method name, input size and run time to the terminal after each run.
 
-## Built in methods
+## Timing Results
+
+### Built in methods
 
 ### Reverse
 
@@ -77,7 +90,7 @@ The timer can be used to time custom functions as well as built it ones. It can 
 
 Return the elements in a array which appear more than once.
 
-[View Algorithm](https://github.com/AJ8GH/algorithmic-complexity/blob/main/algorithms/lib/findDuplicates.js)
+[View Algorithm](https://github.com/AJ8GH/algorithmic-complexity/blob/main/algorithms/lib/quadraticFindDuplicates.js)
 
 #### Graph
 ![find-duplicates-graph](images/find-duplicates-graph.png)
@@ -136,7 +149,7 @@ Return last element of array.
 * **Constant**
 * **O(1)**
 
-## Memory
+## Memory
 
 * Memory is stored in the heap
 * Everything stored in binary
@@ -198,7 +211,7 @@ When creating a static array, the size must be specified, this is fixed and can 
 
 ### Quadratic Shuffle
 
-A shuffle algorithm where efficiency can be improved
+A shuffle algorithm where efficiency can be improved. Algorithm is quadratic since it iterates through the array and performs a linear operation of delete at a specific index on each iteration.
 
 ```js
 function quadraticShuffle (array) {
@@ -213,13 +226,11 @@ function quadraticShuffle (array) {
 }
 ```
 
-Algorithm is quadratic since it iterates through the array and performs a linear operation of delete at a specific index on each iteration:
-
 ![quadratic-shuffle-graph](images/quadratic-shuffle-graph.png)
 
-### Improved (Linear) Shuffle
+### Optimising Quadratic Shuffle Algorithm
 
-To improve the algorithm, instead of deleting from the middle of the array, we can swap it with the last element before deleting it, substituting a linear operation with a constant one:
+To improve the algorithm, instead of deleting from the middle of the array, we can swap it with the last element before deleting it, substituting a linear operation with a constant one. The result is a much faster more efficient algorithm, with linear complexity.
 
 ```js
 function linearShuffle (array) {
@@ -236,11 +247,9 @@ function linearShuffle (array) {
 }
 ```
 
-The new algorithm runs much faster, in linear time:
-
 ![linear-shuffle](images/linear-shuffle-graph.png)
 
-### Quadratic Reverse
+### Quadratic Reverse
 
 The algorithm is quadratic, due to inserting at the start of an array - a linear operation - on every iteration
 
@@ -255,6 +264,22 @@ function quadraticReverse (arr) {
 ```
 
 ![quadratic-reverse-graph](images/quadratic-reverse-graph.png)
+
+### Optimising Quadratic Reverse Algorithm
+
+To optimise this algorithm I simply replaced the unshift with a push, so that elements are inserted to the end of the array instead of the beginning, and iterated through the original array backwards. This replaces a linear operation with a constant one, resulting in a much more efficient algorithm with overall linear complexity.
+
+```js
+function linearReverse (arr) {
+  const newArr = []
+  for (let i = arr.length - 1; i >= 0; i--) {
+    newArr.push(arr[i])
+  }
+  return newArr
+}
+```
+
+![linear-reverse-graph](images/linear-reverse-graph.png)
 
 ## Data Structures
 
@@ -386,7 +411,7 @@ Limitations of current structure - storing non numeric values
 
 ## Linear find duplicates
 
-Find duplicates algorithm with linear complexity, through using sets.
+By applying the techniques above, I designed a new find duplicates algorithm with linear complexity instead of quadratic. The improved the efficiency of the algorithm comes from using a set instead of an array to store the elements and check for duplication. The set is constant time to check the presence of an element, as opposed to linear with an array, reducing the overall algorithmic complexity from quadratic to linear.
 
 [Algorithm](https://github.com/AJ8GH/algorithmic-complexity/blob/main/algorithms/lib/linearFindDuplicates.js)
 
