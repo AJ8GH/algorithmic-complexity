@@ -25,4 +25,8 @@ describe('#fibonacci()', () => {
   it('returns the first 4 fibonacci numbers', () => {
     expect(fibonacci(5)).to.deep.equal([0, 1, 1, 2, 3])
   })
+
+  it('returns the first 10 fibonacci numbers', () => {
+    expect(fibonacci(10)).to.deep.equal([0, 1, 1, 2, 3, 5, 8, 13, 21, 34])
+  })
 })
