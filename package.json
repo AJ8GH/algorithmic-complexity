@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/AJ8GH/algorithmic-complexity#readme",
   "devDependencies": {
-    "@aj8/code-timer": "^1.1.11",
+    "@aj8/code-timer": "^1.1.13",
     "@babel/register": "^7.13.16",
     "babel": "^6.23.0",
     "babel-plugin-istanbul": "^6.0.0",
