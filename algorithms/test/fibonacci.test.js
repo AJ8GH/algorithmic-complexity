@@ -6,7 +6,11 @@ describe('#fibonacci()', () => {
     expect(fibonacci(0)).to.deep.equal([])
   })
 
-  it('returns the first fibonacci number for 1', () => {
+  it('returns the first fibonacci number', () => {
     expect(fibonacci(1)).to.deep.equal([0])
+  })
+
+  it('returns the first 2 fibonacci numbers', () => {
+    expect(fibonacci(2)).to.deep.equal([0, 1])
   })
 })

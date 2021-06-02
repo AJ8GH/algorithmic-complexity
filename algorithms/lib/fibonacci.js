@@ -1,6 +1,10 @@
 export default function fibonnacci (number) {
-  if (number === 0) { return [] }
-  return [0]
+  if (number === 0) {
+    return []
+  } else if (number === 1) {
+    return [0]
+  }
+  return [0, 1]
 }
 
 // Create a function that takes a number N and
