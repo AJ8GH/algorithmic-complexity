@@ -1,5 +1,6 @@
-export default function fibonnacci () {
-  return []
+export default function fibonnacci (number) {
+  if (number === 0) { return [] }
+  return [0]
 }
 
 // Create a function that takes a number N and
