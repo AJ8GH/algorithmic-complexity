@@ -149,6 +149,19 @@ Return last element of array.
 * **Constant**
 * **O(1)**
 
+### Fibonacci
+
+Given a number `n`, return the first `n` numbers of the fibonacci sequence.
+
+[View Algorithm](https://github.com/AJ8GH/algorithmic-complexity/blob/main/algorithms/lib/fibonacci.js)
+
+#### Graph
+![custom-reverse-graph](images/fibonacci-graph.png)
+
+#### Time complexity
+* **Linear**
+* **O(n)**
+
 ## Memory
 
 * Memory is stored in the heap
