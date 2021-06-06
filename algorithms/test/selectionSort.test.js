@@ -22,9 +22,11 @@ describe('#selectionSort()', () => {
   it('sorts a longer array', () => {
     const inputGenerator = new InputGenerator()
     const array = inputGenerator.generate(10)
+    const testArray = [...array]
 
-    const sortedArray = selectionSort(array)
+    const selectionSorted = selectionSort(array)
+    const regularSorted = selectionSort(testArray)
 
-    expect(sortedArray).to.deep.equal(sortedArray.sort())
+    expect(selectionSorted).to.deep.equal(regularSorted)
   })
 })

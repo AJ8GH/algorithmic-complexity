@@ -12,11 +12,8 @@ export default function selectionSort (array) {
         minIndex = currentIndex
       }
     })
-
     sortedArray.push(minValue)
     array.splice(minIndex, 1)
   }
-
-  console.log(sortedArray)
   return sortedArray
 }
