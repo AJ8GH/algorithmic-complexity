@@ -22,4 +22,8 @@ describe('#factorial()', () => {
   it('knows that 5! is 120', () => {
     expect(factorial(5)).to.equal(120)
   })
+
+  it('knows that 10! is 3628800', () => {
+    expect(factorial(10)).to.equal(3628800)
+  })
 })

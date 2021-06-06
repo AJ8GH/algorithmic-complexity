@@ -1,4 +1,3 @@
 export default function factorial (number, product) {
-  if (number < 2) { return 1 }
-  return factorial(number - 1) * number
+  return (number < 2) ? 1 : factorial(number - 1) * number
 }
