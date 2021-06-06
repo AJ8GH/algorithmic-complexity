@@ -3,6 +3,10 @@ import recursiveFibonacci from '../lib/recursiveFibonacci.js'
 
 describe('recursive #recursiveFibonacci', () => {
   it('returns the first recursiveFibonacci number', () => {
+    expect(recursiveFibonacci(0)).to.deep.equal([])
+  })
+
+  it('returns the first recursiveFibonacci number', () => {
     expect(recursiveFibonacci(1)).to.deep.equal([0])
   })
 
