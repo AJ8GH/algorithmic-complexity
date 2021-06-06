@@ -1,10 +1,9 @@
 export default function fibonnacci (number) {
-  if (number === 0) { return [] }
-  if (number === 1) { return [0] }
+  const fibonacciNumbers = [0, 1]
+  if (number <= 2) { return fibonacciNumbers.slice(0, number) }
 
-  const fibonaccis = [0, 1]
   for (let i = 0; i < number - 2; i++) {
-    fibonaccis.push(fibonaccis[i] + fibonaccis[i + 1])
+    fibonacciNumbers.push(fibonacciNumbers[i] + fibonacciNumbers[i + 1])
   }
-  return fibonaccis
+  return fibonacciNumbers
 }
