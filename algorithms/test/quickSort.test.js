@@ -7,12 +7,8 @@ describe('#quickSort()', () => {
     expect(quickSort([])).to.deep.equal([])
   })
 
-  it('sorts a 2 element array', () => {
+  xit('sorts a 2 element array', () => {
     expect(quickSort([2, 1])).to.deep.equal([1, 2])
-  })
-
-  xit('returns an already sorted 2 element array unchanged', () => {
-    expect(quickSort([1, 2])).to.deep.equal([1, 2])
   })
 
   xit('sorts a 3 element array', () => {
