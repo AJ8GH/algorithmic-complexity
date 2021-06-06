@@ -429,3 +429,87 @@ By applying the techniques above, I designed a new find duplicates algorithm wit
 [Algorithm](https://github.com/AJ8GH/algorithmic-complexity/blob/main/algorithms/lib/linearFindDuplicates.js)
 
 ![linear-find-duplicates-graph](images/linear-find-duplicates-graph.png)
+
+## Search Algorithms
+
+### Linear search
+
+loop through an array and check each element
+complexity: linear
+
+### Binary search
+
+Find an element in a sorted array
+
+```
+[1, 3, 4, 5, 7, 9, 10]
+```
+
+To check if the number 8 is in the array:
+- check the middle element
+- if the element is larger than the number you're looking for, check the middle element of the first half of the array
+- if it's smaller, check the middle element of the last half
+- repeat on the remaining array sections until found or covered all elements.
+
+To find an element in a 7 element array, is maximum 3 steps.
+
+```
+                 x
+         ________|________
+     ___|___           ___|___
+  __|__   __|__     __|__   __|__
+ |     | |     |   |     | |     |
+```
+
+Each step adds double the number of elements covered at the final step.
+
+Each step added, the length of the array it can process = `previousArrayLength * 2 + 1`
+
+guesses | max length of array can cover
+--------|--------------------------
+1       | 1
+2       | 3
+3       | 7
+4       | 15
+5       | 31
+6       | 63
+7       | 127
+
+Can calculate the length of the array it can cover by making a binary number of all ones, with as many ones as guesses (the maximum binary number of its length):
+* 3 ones in binary: `111` is 7 in decimal.
+* 4 ones in binary: `1111` is 15 in decimal.
+
+Can also do:
+- `maxArrayLength = (2 ^ numberOfGuesses) -1`
+- `guesses = log2(maxArrayLength + 1)`
+
+
+### Speed
+
+Array size    | linear search | Binary search
+--------------|---------------|--------------
+10            | 10            | 4
+100           | 100           | 7
+1 000         | 1 000         | 10
+1 000 000     | 1 000 000     | 20
+1 000 000 000 | 1 000 000 000 | 30
+
+## Divide & conquer
+
+Psuedocode divide & conquer algorithm template
+
+```js
+function solve (input) {
+  if (input is simple enough that solution is trivial) {
+    return solution
+  }
+
+  split input into input1 and input2
+
+  const solution1 = solve(input1)
+  const solution2 = solve(input2)
+
+  merge solution1 and solution2 into solution
+
+  return solution
+}
